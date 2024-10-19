@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-- 🔭 I’m currently working on a project to build out a sell side order management system for a global hedge fund.
+- 🔭 I’m currently working on a project to build out a buy side order management system for a global hedge fund.
 - 🌱 I’m currently learning new things every day. At the moment I am learning about Bond Analytics, React.js and Redux
 
 
