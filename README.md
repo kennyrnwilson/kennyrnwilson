@@ -8,7 +8,7 @@ I manage my personal knowledge via a number of specific repositories, each handl
 * [Knowledge Library](https://github.com/kennyrnwilson/knowledge-library) holds my complete personal knowledge and life management system.
 * [VS Code Workbench Icons](https://github.com/kennyrnwilson/vscode-workbench-icons) A set of icons to make my Knowledge Library look pretty in VS Code.  
 * [Resource Library](https://github.com/kennyrnwilson/resource-library) A private repository of books and you tube transcripts along with AI and other summaries of them. 
-* [Resource Library Tools](https://github.com/kennyrnwilson/resource-library-tools) - A set of tools developed by me to create and manage my [Resource Library](https://github.com/kennyrnwilson/resource-library)
+* [Resource Librarian](https://github.com/kennyrnwilson/resource-librarian) - A set of tools developed by me to create and manage my [Resource Library](https://github.com/kennyrnwilson/resource-library)
 
 
 ---
