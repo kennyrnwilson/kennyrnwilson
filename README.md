@@ -33,5 +33,6 @@ I manage my personal knowledge via a number of specific repositories, each handl
   <img alt="OpenAPI" src="https://img.shields.io/badge/OpenAPI-6BA539?logo=openapiinitiative&logoColor=white" />
   <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" />
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-8B5CF6?logo=anthropic&logoColor=white" />
+  <img alt="Linux" src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" />
 </p>
 
