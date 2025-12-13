@@ -12,7 +12,7 @@ I am a technology leader in the investment management industry, specializing in 
 🤖 AI Innovation - Maximizing ROI from agentic AI solutions
 📊 Observable Systems - Building distributed architectures with telemetry
 🔐 Security - Modern OAuth flows and secure system design
-📫 Connect: [LinkedIn](https://linkedin.com/in/kennyrnwilson)
+📫 Connect: [LinkedIn](https://www.linkedin.com/in/kenneth-wilson-3b14a17b/)
 
 ## 🛠️ Tech stack
 
