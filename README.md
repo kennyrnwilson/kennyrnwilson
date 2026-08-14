@@ -30,20 +30,3 @@ I am a technology leader in the investment management industry, specializing in 
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-8B5CF6?logo=anthropic&logoColor=white" />
   <img alt="Linux" src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" />
 </p>
-
----
-
-## 🧠📚Personal Side Project: Knowledge Management System
-
-Outside of my professional work, I pursue a personal passion for capturing, distilling, curating, and applying knowledge effectively. I explored several personal knowledge management systems (PKM), but none worked for me out of the box, so I built my own. To power this system, I created a Python package that extracts text from books and YouTube videos and catalogs them in a resource library, making them easier to retrieve and process by both humans and AI. The following infographic, created using Nano Banana Pro, shows an overview of the system.
-
-![Personal Knowledge Management System](./pkm-system.png)
-
-I manage my personal knowledge via a number of specific repositories, each handling a specific aspect of my knowledge. 
-
-* [Knowledge Library](https://github.com/kennyrnwilson/knowledge-library) holds my complete personal knowledge and life management system.
-* [VS Code Workbench Icons](https://github.com/kennyrnwilson/vscode-workbench-icons) A set of icons to make my Knowledge Library look pretty in VS Code.
-* [Resource Library](https://github.com/kennyrnwilson/resource-library) A private repository of books and you tube transcripts along with AI and other summaries of them.
-* [Resource Librarian](https://github.com/kennyrnwilson/resource-librarian) - A set of tools developed by me to create and manage my [Resource Library](https://github.com/kennyrnwilson/resource-library)
-
-I designed this knowledge system myself and wrote the Python code to build the resource library myself (with some help from Claude Code)
