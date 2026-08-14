@@ -3,21 +3,14 @@
 The public index to how I run my life and projects — structure and pointers only.
 The depth lives in a private hub this points into.
 
-## The system in one line
+## What this is
 
 An AI-first personal system that turns knowledge into action across six repos on
 two Macs, with GitHub `main` as the single source of truth and Claude reaching it
-through MCP. Full architecture lives in the personal-portal hub, under
+through MCP. The through-line is two operating systems — Longevity OS and Mind OS —
+carrying book action items -> ranked guidance -> live scorecards -> daily protocols
+across those repos. Full architecture is in the personal-portal hub, under
 `docs/system-architecture`: https://github.com/kennyrnwilson/personal-portal
-
-## Five layers
-
-1. Capture & knowledge — a markdown Zettelkasten and a folder-per-book library.
-2. Measurement — three apps over their own data (health, swimming, finances).
-3. Operating systems — Longevity OS and Mind OS: evidence-by-impact spines that
-   span repos (book action items -> ranked guidance -> live scorecards -> protocols).
-4. The hub — personal-portal: the Astro build, the nginx router, and the fleet's docs.
-5. Substrate — two Macs, GitHub `main`, self-hosted runners, Tailscale, and MCP.
 
 ## The repos
 
