@@ -30,3 +30,10 @@ I am a technology leader in the investment management industry, specializing in 
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-8B5CF6?logo=anthropic&logoColor=white" />
   <img alt="Linux" src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" />
 </p>
+
+---
+
+## 🧭 How I work
+
+See my [operating manual](./operating-manual.md) — a short public index to how I
+run my life and projects.
