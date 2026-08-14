@@ -5,11 +5,19 @@ The depth lives in a private hub this points into.
 
 ## What this is
 
-An AI-first personal system that turns knowledge into action across six repos on
-two Macs, with GitHub `main` as the single source of truth and Claude reaching it
-through MCP. The through-line is two operating systems — Longevity OS and Mind OS —
-carrying book action items -> ranked guidance -> live scorecards -> daily protocols
-across those repos. Full architecture is in the personal-portal hub, under
+An AI-first personal system that turns knowledge into action across six repos,
+with GitHub `main` as the single source of truth. The repos are four kinds:
+markdown knowledge-base articles, book libraries, database-backed apps, and the
+portal.
+
+Claude reaches the system two ways. Claude Code — on a Mac or in a cloud session
+— clones and reads/writes the repos directly. For live app state, MCP servers on
+the always-on Mac Mini front the app databases, so Claude on a phone can read and
+write the apps too.
+
+The through-line is two operating systems — Longevity OS and Mind OS — carrying
+book action items -> ranked guidance -> live scorecards -> daily protocols across
+those repos. Full architecture is in the personal-portal hub, under
 `docs/system-architecture`: https://github.com/kennyrnwilson/personal-portal
 
 ## The repos
@@ -26,12 +34,10 @@ across those repos. Full architecture is in the personal-portal hub, under
 - [personal-portal](https://github.com/kennyrnwilson/personal-portal) — the Astro
   build, the nginx router, and the system docs (the hub).
 
-## The two Macs
+## The host
 
-- Mac Mini — always-on host: serves the site, runs the MCP servers, bridges mobile.
-- MacBook Air — interactive authoring (Obsidian, Claude Code); hosts no services.
-
-GitHub `main` is canonical; both machines fast-forward from it automatically.
+The always-on Mac Mini serves the site, runs the MCP servers, and bridges mobile.
+GitHub `main` is canonical; every machine fast-forwards from it automatically.
 
 ## Conventions
 
