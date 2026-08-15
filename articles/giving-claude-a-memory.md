@@ -5,7 +5,7 @@
 *How I got one markdown file to load itself into every AI session I start — on my
 laptop, in the cloud, and on my phone — and what broke along the way.*
 
-![One operating manual fanning out to four surfaces: terminal, cloud session, mobile and chat](./images/four-surfaces.png)
+![One operating manual with two delivery paths: a SessionStart hook that loads it automatically into local and cloud sessions, and a public URL that browser chat can fetch on demand](./images/delivery-paths.png)
 
 ---
 
