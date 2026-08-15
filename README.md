@@ -35,5 +35,5 @@ I am a technology leader in the investment management industry, specializing in 
 
 ## 🧭 How I work
 
-See my [operating manual](./operating-manual.md) — a short public index to how I
-run my life and projects.
+See my [operating manual](https://github.com/kennyrnwilson/kennys-ai-integrations/blob/main/plugins/operating-context/operating-manual.md)
+— a short public index to how I run my life and projects.
