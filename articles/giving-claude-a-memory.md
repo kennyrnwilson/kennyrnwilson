@@ -89,13 +89,14 @@ cleanly — a session should never fail to start because of a nicety like this.
 
 ---
 
-## Then the phone said no
+## Then the cloud said no
 
 Terminal: worked immediately. I enabled the plugin, started a fresh session,
 asked a question only the manual could answer, and got it back. Done.
 
-Then I opened a cloud session from my phone, asked what plugins were installed,
-and got one plugin back. Not mine.
+Then I went looking beyond the terminal. I opened a session in a managed
+environment on my phone, asked what plugins were installed, and got one plugin
+back. Not mine.
 
 This is the part of the project worth writing about, because I spent the next
 stretch being confidently wrong in three different directions.
@@ -199,7 +200,13 @@ Three properties, and each one earns its place:
 That last trick solved the observability problem in one move. The log came back
 clean: binary found, GitHub reachable, marketplace added, **plugin installed.**
 
-Fresh session on the phone. Asked the question. It answered from the manual.
+Fresh cloud session. Asked the question. It answered from the manual.
+
+One honest boundary on that result. The environment where I first noticed the
+problem — a managed, phone-friendly one with its own fixed plugin set — is *not*
+the environment I ended up verifying. What I proved works is a Claude Code cloud
+session. The managed environment remains uncovered, and I'd rather leave that
+stated than let a tidy ending imply otherwise.
 
 ---
 
