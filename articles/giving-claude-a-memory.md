@@ -2,8 +2,8 @@
 
 # Giving Claude a Memory
 
-*How I got one markdown file to load itself into every AI session I start — on my
-laptop, in the cloud, and on my phone — and what broke along the way.*
+*How I got one markdown file to load itself into every Claude Code session I
+start — local and in the cloud — and what broke along the way.*
 
 ![One operating manual with two delivery paths: a SessionStart hook that loads it automatically into local and cloud sessions, and a public URL that browser chat can fetch on demand](./images/delivery-paths.png)
 
@@ -25,9 +25,15 @@ model without me pasting it?
 
 So I set a deliberately awkward goal:
 
-> One short document. Loaded automatically into **every** session, on every
-> surface I use — terminal, cloud, and phone — with no copy-paste, and exactly
-> one copy of the file.
+> One short document. Loaded automatically into **every** Claude Code session —
+> local terminal and cloud alike — with no copy-paste, and exactly one copy of
+> the file.
+
+A caveat worth stating up front, because it bounds everything that follows: this
+is a **Claude Code** solution. The mechanism it rests on is a Claude Code hook,
+so it reaches Claude Code sessions wherever they run — and it does *not*
+automatically reach a browser chat, which can only go and fetch the file's public
+URL when asked.
 
 That last clause is the one that hurts. Anyone can solve this with duplication.
 
@@ -228,9 +234,13 @@ down what happened, then ask it to read that back.
 
 ## Where it landed
 
-One markdown file, in one place, that loads itself into every session I start —
-laptop, cloud, and phone. When I open a session now, it already knows how my
+One markdown file, in one place, that loads itself into every Claude Code session
+I start, local or cloud. When I open a session now, it already knows how my
 system is put together.
+
+It is not a universal answer, and I'd rather say so than imply otherwise: it
+solves the surface I actually work on all day, and leaves browser chat with a URL
+it can fetch when it needs to.
 
 The plugin is about forty lines of shell and JSON. Most of the work was deciding
 where the file should live, and then finding out — three wrong turns later — what
