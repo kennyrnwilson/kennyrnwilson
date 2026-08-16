@@ -44,7 +44,9 @@ makes them cheap to have many of.
 **MCP servers** front live application data. They cost nothing until called, provided
 their schemas are deferred behind a tool search. Mine run on an always-on Mac Mini and
 expose the wellbeing, swim, knowledge, and book libraries, so a session on a phone can
-read and write real state.
+read and write real state. They are reachable only from machines on my Tailscale
+network, so this is the one layer a cloud session does not get — see
+[the AI setup overview](../README.md#access).
 
 ## My own plugins
 

@@ -98,6 +98,12 @@ nginx fronts the web traffic. The MCP route does not go through it. Everything r
 on the Mac Mini, and Tailscale puts the whole system on a private network across my
 own Apple devices.
 
+That private network is also the limit of the MCP door. The servers are reachable
+only from machines on my Tailscale network, which rules out cloud sessions — they run
+in a container that is not on it. So a cloud session gets the repositories from GitHub
+and the operating manual from its plugin, but no live application state. Reading a
+scorecard or writing a swim session needs a session on one of my own machines.
+
 The detail behind each mechanism:
 [MCP server topology](https://github.com/kennyrnwilson/personal-portal/blob/main/docs/system-architecture/mcp-topology.md)
 for what each server exposes and how it reaches its data,
