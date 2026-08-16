@@ -63,5 +63,28 @@ and write live state rather than just read pages.
 
 Both doors end at the same data. That is the point of the arrangement.
 
-A short public index to all of this — the operating manual — is the subject of
+## What every tool is told
+
+The standing context is the life management system itself — the thing all the repos
+and apps exist to serve. Any AI tool that does not know this shape gives generic
+advice about a system it cannot see.
+
+![A five-stage chain: books, action items, guidance goals, scorecards, daily
+protocols, with a feedback loop from protocols back to scorecards. Two bands,
+Longevity OS and Mind OS, run beneath the whole chain.](./images/life-management-system.png)
+
+It is an AI-first personal system that turns knowledge into action. Books are read
+into a folder each, with notes and **action items**. Those items feed four **guidance
+goals** — maximise healthspan, master your mind, sharpen focus, lead people. The apps
+turn live data into **scorecards** against those goals, and the scorecards drive
+**daily protocols**. Two operating systems, **Longevity OS** and **Mind OS**, run
+through every stage.
+
+Alongside the chain, a tool needs the ground rules: GitHub `main` is canonical, docs
+live in each repo's `docs/`, link rather than duplicate, and prose is written in
+Simplified Technical English.
+
+That is roughly fifty lines of markdown — a short public index called the operating
+manual. How those fifty lines reach every session without being pasted is the
+`operating-context` plugin, described in
 [shared context](./claude-code/shared-context.md).
