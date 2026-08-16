@@ -255,5 +255,9 @@ the platform would actually let me do.
 
 ---
 
+*Want to build this yourself? [How to Load Your Own Context Into Every Claude
+Code Session](./how-to-load-context-into-every-claude-code-session.md) is the
+same project as a step-by-step guide, with the wrong turns removed.*
+
 *Built and written with Claude Code, in one session. The debugging arc is
 reported as it happened, wrong turns included.*

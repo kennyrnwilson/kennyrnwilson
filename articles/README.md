@@ -7,4 +7,5 @@ wrong turns left in.
 
 | Article | About |
 | --- | --- |
-| [Giving Claude a Memory](./giving-claude-a-memory.md) | Getting one markdown file to load itself into every AI session — laptop, cloud and phone — and the three wrong diagnoses on the way. |
+| [How to Load Your Own Context Into Every Claude Code Session](./how-to-load-context-into-every-claude-code-session.md) | Step-by-step: build a small plugin whose `SessionStart` hook prints a document you write into every session, local and cloud. |
+| [Giving Claude a Memory](./giving-claude-a-memory.md) | The same project as a debugging story — one file that loads itself into every Claude Code session, and the three wrong diagnoses on the way. |
