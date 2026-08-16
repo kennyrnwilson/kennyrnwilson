@@ -2,12 +2,8 @@
 
 # AI setup
 
-How I actually work with AI: the tools, how they are configured, and the
-mechanisms that make them useful across a whole system rather than one chat at a
-time.
+How I actually work with AI: the tools, how they are configured, and the mechanisms that make them useful.
 
-This is **reference** documentation — what the setup is today. For how it was
-built, and the wrong turns along the way, see [articles](../articles/README.md).
 
 ## The tools
 
@@ -16,33 +12,99 @@ built, and the wrong turns along the way, see [articles](../articles/README.md).
 | [Claude Code](./claude-code/README.md) | The main driver. Reads and writes the repos directly, on a Mac or in a cloud session. | ✅ |
 | OpenAI Codex | Second opinion, and a check that my setup is not locked to one vendor. | soon |
 
-## The principle underneath
+## The life management system
 
-Everything here follows from one idea: **an AI session should start knowing how my
-system is put together.**
+I am building out an system that will enable me to manage my life. Every AI tool much have at its fingertips high level information on how this system works in order to 
 
-Not because the model needs teaching every time, but because the alternative is me
-teaching it — the same preamble, ten times a day. Where the docs live, which repo
-owns what, what `main` means, which two operating systems run through everything.
-
-That turns into three rules.
-
-- **One copy, or none.** Two copies of a fact means one is wrong and you cannot
-  tell which.
-- **Load it automatically.** Anything that needs pasting gets pasted on good days
-  only.
-- **Nothing in the startup path without a time limit.** Learned the hard way —
-  see [Giving Claude a Memory](../articles/giving-claude-a-memory.md).
+1) Help build the system 
+2) Interact with it
 
 ## The system being described
+
+### Source Repositories
+Git Hub is the single source of truth for the life management system repositories. All AI tools can be easily permissioned for GitHub and can hence clone and read/write the necessary repositories. 
+
+
+| Repository | What it holds |
+| --- | --- |
+| [knowledge-library](https://github.com/kennyrnwilson/knowledge-library) | The Zettelkasten and life-management notes, including the guidance goals. |
+| [book-library](https://github.com/kennyrnwilson/book-library) | A folder per book, with notes, summaries, and action items. |
+| [wellbeing-app](https://github.com/kennyrnwilson/wellbeing-app) | Apple Health data; the longevity and mind scorecards. |
+| [swim-app](https://github.com/kennyrnwilson/swim-app) | Swim sessions and drills. |
+| [finances](https://github.com/kennyrnwilson/finances) | Self-hosted Actual Budget. |
+| [personal-portal](https://github.com/kennyrnwilson/personal-portal) | The site build, the nginx routing, and the system documentation. |
+
+Most of these are private, so the links resolve only for my own authenticated
+sessions. The full map of how they fit together is the
+[system architecture hub](https://github.com/kennyrnwilson/personal-portal/blob/main/docs/system-architecture/index.md)
+in `personal-portal`, with
+[a page per app](https://github.com/kennyrnwilson/personal-portal/blob/main/docs/system-architecture/apps/index.md)
+underneath it.
 
 ![Six repositories — knowledge-library, book-library, wellbeing-app, swim-app,
 finances, personal-portal — around GitHub main as the single source of truth, with
 an AI coding assistant cloning, reading, and writing them.](./images/system-map.png)
 
-The repositories hold markdown and application data. GitHub `main` is canonical, and
-every machine fast-forwards from it. The AI coding assistant works on the
-repositories directly — it clones them, reads them, and commits back.
+### State
+
+The canonical system state exists is one of two places
+
+* Directly in GitHub repositories e.g. markdown articles in knowledge-base and book and their summaries in book-library
+* In a set of databases running on a Mac Mini whose configuration lives in GitHub repositories such as swim-app, wellbeing-app, finances
+
+![Two columns. On the left, versioned in GitHub with full history: knowledge-library
+markdown notes, book-library notes and PDFs, personal-portal docs and site
+configuration. On the right, live on the Mac Mini and gitignored: the wellbeing,
+swim, and finances databases, whose only durability is a weekly five-tier snapshot
+to iCloud.](./images/where-state-lives.png)
+
+How state actually moves — an edit on a phone reaching the site, a health import, a
+backup run — is walked through end to end in
+[data flows](https://github.com/kennyrnwilson/personal-portal/blob/main/docs/system-architecture/data-flows.md),
+and the snapshot rotation is
+[the iCloud backup pattern](https://github.com/kennyrnwilson/personal-portal/blob/main/docs/system-architecture/patterns/data-backup-icloud.md).
+
+### Access
+
+Most repository content does not hold state. It holds the mechanisms that expose the
+state — to me, and to my tools.
+
+![On the far left my devices — MacBook Air, Mac Mini, iPhone and iPad. They feed an AI
+session, drawn as a split brain and circuit head, which fans out into four MCP
+servers. Those reach the data: knowledge-library and book-library markdown, and the
+wellbeing, swim and finances databases. In front of the data sit the static site
+pipeline over the two markdown sources and the wellbeing, swim and finances apps over
+their databases. On the far right, nginx, fed by the pipeline and the wellbeing and
+swim apps, with its traffic running along the bottom of the picture to a browser and
+back to the same devices. The MCP servers reach the markdown and the swim database
+directly and the wellbeing app through its API, none of them passing through nginx.
+Finances has no MCP server.](./images/how-state-is-exposed.png)
+
+There are three kinds:
+
+- A **static site pipeline** in `personal-portal` compiles markdown from
+  `knowledge-library`, `book-library`, and its own `docs/` into HTML.
+- A **web application over each database** — `wellbeing-app` and `swim-app`, each
+  with its own API, and `finances` running Actual Budget.
+- **Four MCP servers**, one each for `knowledge-library`, `book-library`,
+  `wellbeing-app`, and `swim-app`. `finances` has none.
+
+The MCP servers do not all attach at the same depth. The two library servers read
+markdown off disk. The wellbeing server goes through that app's API, so it inherits
+whatever the API already enforces. The swim server is the exception: it opens the
+SQLite file directly, with no API in front of it.
+
+nginx fronts the web traffic. The MCP route does not go through it. Everything runs
+on the Mac Mini, and Tailscale puts the whole system on a private network across my
+own Apple devices.
+
+The detail behind each mechanism:
+[MCP server topology](https://github.com/kennyrnwilson/personal-portal/blob/main/docs/system-architecture/mcp-topology.md)
+for what each server exposes and how it reaches its data,
+[the build pipeline](https://github.com/kennyrnwilson/personal-portal/blob/main/docs/system-architecture/build-pipeline.md)
+for how markdown becomes the site, and
+[one MCP server per repo](https://github.com/kennyrnwilson/personal-portal/blob/main/docs/system-architecture/patterns/mcp-server-per-repo.md)
+for why they are split that way.
 
 ## The host
 
@@ -62,6 +124,11 @@ databases and repositories directly, which is why an AI session on a phone can r
 and write live state rather than just read pages.
 
 Both doors end at the same data. That is the point of the arrangement.
+
+The routing table, the TLS termination, and every service the Mini runs are in
+[the Mac Mini service topology](https://github.com/kennyrnwilson/personal-portal/blob/main/docs/system-architecture/mac-mini-services.md);
+the machines themselves are in
+[devices](https://github.com/kennyrnwilson/personal-portal/blob/main/docs/system-architecture/devices.md).
 
 ## What every tool is told
 
