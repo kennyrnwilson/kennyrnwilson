@@ -37,3 +37,11 @@ I am a technology leader in the investment management industry, specializing in 
 
 See my [operating manual](https://github.com/kennyrnwilson/kennys-ai-integrations/blob/main/plugins/operating-context/operating-manual.md)
 — a short public index to how I run my life and projects.
+
+## 🤖 AI setup
+
+- **[AI setup](./ai-setup/README.md)** — the tools I use and how they are configured,
+  starting with [Claude Code](./ai-setup/claude-code/README.md) and the
+  [shared context](./ai-setup/claude-code/shared-context.md) that loads into every session.
+- **[Articles](./articles/README.md)** — write-ups on building and running these
+  systems, with the wrong turns left in.
