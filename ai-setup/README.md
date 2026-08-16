@@ -102,7 +102,12 @@ That private network is also the limit of the MCP door. The servers are reachabl
 only from machines on my Tailscale network, which rules out cloud sessions — they run
 in a container that is not on it. So a cloud session gets the repositories from GitHub
 and the operating manual from its plugin, but no live application state. Reading a
-scorecard or writing a swim session needs a session on one of my own machines.
+scorecard or writing a swim session needs a session on one of my own devices.
+
+A phone counts, but indirectly. The servers are local child processes, not network
+services, so nothing connects to them over the network at all. A session on a phone
+reaches them by being relayed to the desktop app on the Mac Mini, which starts them
+there. The Mini is always in the path.
 
 The detail behind each mechanism:
 [MCP server topology](https://github.com/kennyrnwilson/personal-portal/blob/main/docs/system-architecture/mcp-topology.md)
